@@ -10,7 +10,12 @@ const pageNum = document.getElementById('page-num');
 const USER_KEY = 'CURRENT_USER';
 const currentUser = JSON.parse(getFromStorage(USER_KEY)) ?? [];
 // console.log(currentUser);//for check error
-const pageSize = currentUser[0].pageSize;
+let pageSize;
+if (currentUser == null) {
+  pageSize = 10;
+} else {
+  pageSize = currentUser[0].pageSize;
+}
 let page = 1;
 let totalArticles;
 
