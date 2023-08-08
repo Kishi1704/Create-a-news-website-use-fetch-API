@@ -25,7 +25,7 @@ Check out the live demo of the application: [Demo](https://kishi1704.github.io/s
 2. Navigate to the project directory
 3. Open index.html in your web browser to use the application.
 
-##Contributing
+## Contributing
 I welcome contributions from the community! To contribute to this project, follow these steps:
  - Fork the repository.
  - Create a new branch: git checkout -b feature/new-feature.
