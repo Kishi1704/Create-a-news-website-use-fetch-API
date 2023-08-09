@@ -34,10 +34,13 @@ async function displayNews(page) {
   try {
     newsContainer.innerHTML = '';
 
-    const data = await currentUser[0]?.getNews(page) ?? [];
+    const data = await currentUser[0].getNews(page);
     // console.log(data);//for check error
-
-    for (const article of data?.articles) {
+    if (data == null) {
+      return;
+    }
+    
+    for (const article of data.articles) {
       const html = `
           <div class="card flex-row flex-wrap">
             <div class="card mb-3" style="">
@@ -92,10 +95,10 @@ displayNews(page);
 (async function () {
   try {
     const data = await currentUser[0]?.getNews();
-
-    totalArticles = data?.totalResults;
+    
+    totalArticles = data == null ? 0 : data.totalResults;
     const maxPage = Math.ceil(totalArticles / pageSize);
-    if (maxPage === 1) disableNextBtn.classList.add('disabled');
+    if (maxPage === 1 || maxPage === 0) disableNextBtn.classList.add('disabled');
 
     disablePrevBtn.classList.add('disabled');
 
