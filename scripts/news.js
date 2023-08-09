@@ -25,14 +25,16 @@ function parseUser(userData) {
 }
 
 //Display news
-currentUser.splice(0, 1, parseUser(currentUser[0]));
+if (currentUser.length !== 0) {
+  currentUser.splice(0, 1, parseUser(currentUser[0]));
+}
 // console.log(currentUser);//for check error
 
 async function displayNews(page) {
   try {
     newsContainer.innerHTML = '';
 
-    const data = await currentUser[0].getNews(page);
+    const data = await currentUser[0]?.getNews(page);
     // console.log(data);//for check error
 
     for (const article of data.articles) {
@@ -89,7 +91,7 @@ displayNews(page);
 // Move Page
 (async function () {
   try {
-    const data = await currentUser[0].getNews();
+    const data = await currentUser[0]?.getNews();
 
     totalArticles = data.totalResults;
     const maxPage = Math.ceil(totalArticles / pageSize);
