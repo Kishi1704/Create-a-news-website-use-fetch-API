@@ -84,6 +84,11 @@ renderTodoList();
 
 //Add Task event
 addBtn.addEventListener('click', function () {
+  // Check if user don't login
+  if(currentUser.length === 0) {
+     alert('Please login to do action!');
+     return;
+  }
   const valid = validateTask();
   // console.log(valid);//for check error
 
