@@ -42,7 +42,7 @@ if(currentUser.length !== 0) {
 }
 //Save setting event
 saveBtn.addEventListener('click', function () {
-  if(currentUser.length !== 0) {
+  if(currentUser.length === 0) {
     alert('Please login to do this action!');
     return;
   }
