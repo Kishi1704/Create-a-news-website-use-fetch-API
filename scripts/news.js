@@ -37,7 +37,7 @@ async function displayNews(page) {
     const data = await currentUser[0]?.getNews(page);
     // console.log(data);//for check error
 
-    for (const article of data.articles) {
+    for (const article of data?.articles) {
       const html = `
           <div class="card flex-row flex-wrap">
             <div class="card mb-3" style="">
@@ -93,7 +93,7 @@ displayNews(page);
   try {
     const data = await currentUser[0]?.getNews();
 
-    totalArticles = data.totalResults;
+    totalArticles = data?.totalResults;
     const maxPage = Math.ceil(totalArticles / pageSize);
     if (maxPage === 1) disableNextBtn.classList.add('disabled');
 
