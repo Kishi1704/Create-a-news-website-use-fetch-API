@@ -76,7 +76,9 @@ function taskDelete(e) {
 }
 //------------------Event--------------------//
 //Update array
-currentUser?.splice(0, 1, parseUser(currentUser[0]));
+if(currentUser.length !== 0) {
+  currentUser?.splice(0, 1, parseUser(currentUser[0]));
+}
 todoArr?.forEach((todo, i, arr) => arr.splice(i, 1, parseTodo(todo)));
 
 //Update todo list
