@@ -35,11 +35,17 @@ function validateSave() {
 //------------------Event--------------------//
 
 userArr.forEach((user, i, arr) => arr.splice(i, 1, parseUser(user)));
-console.log(userArr);
-currentUser.splice(0, 1, parseUser(currentUser[0]));
-
+if(currentUser.length !== 0) {
+  currentUser.splice(0, 1, parseUser(currentUser[0]));
+  categoryInput.value = currentUser[0].category;
+  pageSizeInput.value = currentUser[0].pageSize;
+}
 //Save setting event
 saveBtn.addEventListener('click', function () {
+  if(currentUser.length !== 0) {
+    alert('Please login to do this action!');
+    return;
+  }
   const valid = validateSave();
   // console.log(valid);//for check error
 
