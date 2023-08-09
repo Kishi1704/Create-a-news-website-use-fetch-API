@@ -34,7 +34,7 @@ async function displayNews(page) {
   try {
     newsContainer.innerHTML = '';
 
-    const data = await currentUser[0].getNews(page);
+    const data = await currentUser[0]?.getNews(page);
     // console.log(data);//for check error
     if (data == null) {
       return;
